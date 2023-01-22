@@ -1,0 +1,42 @@
+<h3>スケジュール詳細</h3>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @task.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @task.start_date %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @task.end_date %></td>
+  </tr>
+  <tr>
+    <th>投稿日時</th>
+    <td><%= @task.created_at %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <td>
+      <% if @task.all_day == true %>
+        ◯
+      <% else @task.all_day == false %>
+
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= @task.description %></td>
+  </tr>
+</table>
+
+<div>
+  <ul>
+    <li><%= link_to "スケジュール情報一覧に戻る", tasks_index_path %></li>
+    <li><%= link_to "スケジュールを編集する", [:edit, @task] %></li> 
+    <li><%= link_to "スケジュールを削除", @task, data: {turbo_method: :delete}, turbo_confirm: "本当に削除しますか？" %></li>
+  </ul>
+</div>
